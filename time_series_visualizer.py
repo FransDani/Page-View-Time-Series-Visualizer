@@ -36,11 +36,9 @@ def draw_bar_plot():
     df_bar = df_bar.unstack()
 
     # Draw bar plot
-    fig = df_bar.plot.bar(legend=True, figsize = (10,5), ylabel="Average Page Views", xlabel="Years").figure
-    plt.legend(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
-    plt.xticks(fontsize = 10)
-    plt.yticks(fontsize = 10)
-
+    fig = df_bar.plot.bar(legend=True, figsize=(10, 5), ylabel="Average Page Views", xlabel="Years").figure
+    plt.xticks(ticks=range(len(df_bar.index)), labels=df_bar.index, rotation=45, fontsize=10)
+    plt.yticks(fontsize=10)
 
     # Save image and return fig (don't change this part)
     fig.savefig('bar_plot.png')
